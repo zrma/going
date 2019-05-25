@@ -9,29 +9,29 @@ import (
 var _ = Describe("정수형 관련 유틸 함수 검증", func() {
 	Context("Min", func() {
 		It("32 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
-			Expect(MinInt32([]int32{1, 3, 5})).Should(BeNumerically("==", 1))
-			Expect(MinInt32([]int32{3, 1, 5})).Should(BeNumerically("==", 1))
-			Expect(MinInt32([]int32{5, 3, 1})).Should(BeNumerically("==", 1))
+			Expect(MinInt32(1, 3, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt32(3, 1, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt32(5, 3, 1)).Should(BeNumerically("==", 1))
 		})
 
 		It("64 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
-			Expect(MinInt64([]int64{1, 3, 5})).Should(BeNumerically("==", 1))
-			Expect(MinInt64([]int64{3, 1, 5})).Should(BeNumerically("==", 1))
-			Expect(MinInt64([]int64{5, 3, 1})).Should(BeNumerically("==", 1))
+			Expect(MinInt64(1, 3, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt64(3, 1, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt64(5, 3, 1)).Should(BeNumerically("==", 1))
 		})
 	})
 
 	Context("Max", func() {
 		It("32 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
-			Expect(MaxInt32([]int32{1, 3, 5})).Should(BeNumerically("==", 5))
-			Expect(MaxInt32([]int32{3, 1, 5})).Should(BeNumerically("==", 5))
-			Expect(MaxInt32([]int32{5, 3, 1})).Should(BeNumerically("==", 5))
+			Expect(MaxInt32(1, 3, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt32(3, 1, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt32(5, 3, 1)).Should(BeNumerically("==", 5))
 		})
 
 		It("64 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
-			Expect(MaxInt64([]int64{1, 3, 5})).Should(BeNumerically("==", 5))
-			Expect(MaxInt64([]int64{3, 1, 5})).Should(BeNumerically("==", 5))
-			Expect(MaxInt64([]int64{5, 3, 1})).Should(BeNumerically("==", 5))
+			Expect(MaxInt64(1, 3, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt64(3, 1, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt64(5, 3, 1)).Should(BeNumerically("==", 5))
 		})
 	})
 

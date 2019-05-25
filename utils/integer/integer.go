@@ -2,8 +2,8 @@ package integer
 
 import "math"
 
-// MinInt32 함수는 인자로 주어진 int32 슬라이스에서 가장 작은 값을 반환한다.
-func MinInt32(arr []int32) int32 {
+// MinInt32 함수는 인자로 주어진 int32 가변 인수 중 가장 작은 값을 반환한다.
+func MinInt32(arr ...int32) int32 {
 	var min int32 = math.MaxInt32
 	for _, num := range arr {
 		if min > num {
@@ -13,8 +13,8 @@ func MinInt32(arr []int32) int32 {
 	return min
 }
 
-// MinInt64 함수는 인자로 주어진 int64 슬라이스에서 가장 작은 값을 반환한다.
-func MinInt64(arr []int64) int64 {
+// MinInt64 함수는 인자로 주어진 int64 가변 인수 중 가장 작은 값을 반환한다.
+func MinInt64(arr ...int64) int64 {
 	var min int64 = math.MaxInt64
 	for _, num := range arr {
 		if min > num {
@@ -24,8 +24,8 @@ func MinInt64(arr []int64) int64 {
 	return min
 }
 
-// MaxInt32 함수는 인자로 주어진 int32 슬라이스에서 가장 큰 값을 반환한다.
-func MaxInt32(arr []int32) int32 {
+// MaxInt32 함수는 인자로 주어진 int32 가변 인수 중 가장 큰 값을 반환한다.
+func MaxInt32(arr ...int32) int32 {
 	var max int32 = math.MinInt32
 	for _, num := range arr {
 		if max < num {
@@ -35,8 +35,8 @@ func MaxInt32(arr []int32) int32 {
 	return max
 }
 
-// MaxInt64 함수는 인자로 주어진 int64 슬라이스에서 가장 큰 값을 반환한다.
-func MaxInt64(arr []int64) int64 {
+// MaxInt64 함수는 인자로 주어진 int64 가변 인수 중 가장 큰 값을 반환한다.
+func MaxInt64(arr ...int64) int64 {
 	var max int64 = math.MinInt64
 	for _, num := range arr {
 		if max < num {
