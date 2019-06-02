@@ -35,8 +35,20 @@ var _ = Describe("정수형 관련 유틸 함수 검증", func() {
 		})
 	})
 
-	Context("Pow 함수는", func() {
-		It("거듭제곱 연산을 잘 수행한다.", func() {
+	Context("Pow", func() {
+		It("32 함수는 거듭제곱 연산을 잘 수행한다.", func() {
+			actual := PowInt32(3, 5)
+			expected := math.Pow(3, 5)
+			Expect(actual).Should(BeNumerically("==", expected))
+
+			actual = PowInt32(0, 5)
+			Expect(actual).Should(BeNumerically("==", 0))
+
+			actual = PowInt32(10, 0)
+			Expect(actual).Should(BeNumerically("==", 1))
+		})
+
+		It("64 함수는 거듭제곱 연산을 잘 수행한다.", func() {
 			actual := PowInt64(3, 5)
 			expected := math.Pow(3, 5)
 			Expect(actual).Should(BeNumerically("==", expected))

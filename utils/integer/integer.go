@@ -46,6 +46,20 @@ func MaxInt64(arr ...int64) int64 {
 	return max
 }
 
+// PowInt32 함수는 인자로 주어진 n의 p 거듭제곱 값을 반환한다.
+func PowInt32(n, p int32) int32 {
+	if n == 0 {
+		return 0
+	}
+
+	var result int32 = 1
+	for ; p > 0; p-- {
+		result *= n
+	}
+
+	return result
+}
+
 // PowInt64 함수는 인자로 주어진 n의 p 거듭제곱 값을 반환한다.
 func PowInt64(n, p int64) int64 {
 	if n == 0 {

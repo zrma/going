@@ -3,8 +3,8 @@ module github.com/zrma/going
 go 1.12
 
 require (
-	github.com/Songmu/ghch v0.5.1 // indirect
-	github.com/Songmu/goxz v0.3.3 // indirect
+	github.com/Songmu/ghch v0.10.0 // indirect
+	github.com/Songmu/goxz v0.4.1 // indirect
 	github.com/blang/semver v3.5.1+incompatible // indirect
 	github.com/go-test/deep v1.0.1
 	github.com/mattn/goveralls v0.0.2 // indirect
