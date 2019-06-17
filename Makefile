@@ -17,12 +17,14 @@ devel-deps: deps
 	  github.com/motemen/gobump/cmd/gobump \
 	  github.com/Songmu/goxz/cmd/goxz      \
 	  github.com/Songmu/ghch/cmd/ghch
+	$(GO) install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
 
 test: deps
 	$(GO) test -coverprofile=coverage.out -covermode=count ./...
 
 lint: devel-deps
 	$(GO) vet ./...
+	$(GO) vet -vettool=$(GOPATH)/bin/shadow ./...
 	golint -set_exit_status ./...
 
 cover: devel-deps
