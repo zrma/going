@@ -1,6 +1,10 @@
 language: go
 go:
 - 1.12.x
+cache:
+  directories:
+    - $HOME/.cache/go-build
+    - $HOME/gopath/pkg/mod
 before_install:
 - chmod +x ./sonar.sh
 script:
