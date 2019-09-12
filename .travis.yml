@@ -5,18 +5,19 @@ cache:
   directories:
     - $HOME/.cache/go-build
     - $HOME/gopath/pkg/mod
-before_install:
-- chmod +x ./sonar.sh
+dist: trusty
 script:
 - make lint
 - make test
-- "./sonar.sh"
+- sonar-scanner
 after_script:
 - make cover
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 addons:
-  sonarcloud: true
+  sonarcloud:
+    organization: $ORGANIZATION
+    token: $SONAR_TOKEN
 env:
   global:
   - GO111MODULE=on
