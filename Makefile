@@ -14,7 +14,7 @@ devel-deps: deps
 	$(GO) get ${u} \
 	  golang.org/x/lint/golint             \
 	  github.com/mattn/goveralls           \
-	  github.com/motemen/gobump/cmd/gobump \
+	  github.com/x-motemen/gobump/cmd/gobump \
 	  github.com/Songmu/goxz/cmd/goxz      \
 	  github.com/Songmu/ghch/cmd/ghch
 	$(GO) install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
