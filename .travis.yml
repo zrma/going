@@ -1,11 +1,13 @@
 language: go
 go:
-- 1.13.x
+- 1.14.x
 cache:
   directories:
     - $HOME/.cache/go-build
     - $HOME/gopath/pkg/mod
 dist: trusty
+before_script:
+- chmod +x ./*.sh
 script:
 - make lint
 - make test

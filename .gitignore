@@ -2,10 +2,9 @@ bin/
 reports/
 coverage.out
 
-\.scannerwork/
 
-# Created by https://www.gitignore.io/api/go,osx,linux,windows,jetbrains
-# Edit at https://www.gitignore.io/?templates=go,osx,linux,windows,jetbrains
+# Created by https://www.gitignore.io/api/go,linux,macos,windows,sonarqube,jetbrains+all
+# Edit at https://www.gitignore.io/?templates=go,linux,macos,windows,sonarqube,jetbrains+all
 
 ### Go ###
 # Binaries for programs and plugins
@@ -20,6 +19,9 @@ coverage.out
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
 
 ### Go Patch ###
 /vendor/
@@ -126,7 +128,7 @@ modules.xml
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-### OSX ###
+### macOS ###
 # General
 .DS_Store
 .AppleDouble
@@ -154,9 +156,22 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### SonarQube ###
+# SonarQube ignore files.
+#
+# https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+# Sonar Scanner working directories
+.sonar/
+.scannerwork/
+
+# http://www.sonarlint.org/commandline/
+# SonarLint working directories, configuration files (including credentials)
+.sonarlint/
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
@@ -179,5 +194,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/go,osx,linux,windows,jetbrains
-
+# End of https://www.gitignore.io/api/go,linux,macos,windows,sonarqube,jetbrains+all
