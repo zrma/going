@@ -20,7 +20,7 @@ devel-deps: deps
 	$(GO) install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
 
 test: deps
-	$(GO) test -coverprofile=coverage.out -covermode=count ./...
+	./cover.sh
 
 lint: devel-deps
 	$(GO) vet ./...
