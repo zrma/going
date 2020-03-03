@@ -1,21 +1,20 @@
 package container
 
 import (
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	"testing"
+
+	"gotest.tools/assert"
 )
 
-var _ = Describe("컨테이너 동작 검증", func() {
-	Context("Foreach", func() {
-		It("빈 컨테이너를 인자로 전달해도 잘 동작한다.", func(done Done) {
-			defer GinkgoRecover()
+func TestForeach(t *testing.T) {
+	t.Run("컨테이너 동작 검증", func(t *testing.T) {
+		t.Parallel()
+
+		t.Run("빈 컨테이너를 인자로 전달해도 잘 동작한다.", func(t *testing.T) {
 			Foreach(nil, nil)
-			close(done)
 		})
 
-		It("Iterate 동작을 잘 수행한다.", func(done Done) {
-			defer GinkgoRecover()
-
+		t.Run("Iterate 동작을 잘 수행한다.", func(t *testing.T) {
 			const size = 100
 			var nodes []node
 			for i := 0; i < size; i++ {
@@ -23,12 +22,11 @@ var _ = Describe("컨테이너 동작 검증", func() {
 			}
 			c := containerImpl{nodes}
 			Foreach(&c, func(n Node, idx int) {
-				Expect(n).Should(Equal(nodes[idx]))
+				assert.Equal(t, n, nodes[idx])
 			})
-			close(done)
 		})
 	})
-})
+}
 
 type node int
 

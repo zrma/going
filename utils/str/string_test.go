@@ -2,51 +2,42 @@ package str
 
 import (
 	"sort"
+	"testing"
 
-	"github.com/go-test/deep"
-
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	"gotest.tools/assert"
 )
 
-var _ = Describe("문자열 관련 유틸 함수 검증", func() {
+func TestStrUtils(t *testing.T) {
 	//noinspection SpellCheckingInspection
-	Context("Sort 함수는", func() {
-		It("하나의 문자열을 잘 정렬한다.", func() {
+	t.Run("문자열 관련 유틸 함수 검증", func(t *testing.T) {
+		t.Parallel()
+
+		t.Run("Sort 함수는 하나의 문자열을 잘 정렬한다.", func(t *testing.T) {
 			actual := Sort("dcba")
-			Expect(actual).Should(Equal("abcd"))
+			assert.Equal(t, actual, "abcd")
 
 			actual = Sort("ffbbaa")
-			Expect(actual).Should(Equal("aabbff"))
+			assert.Equal(t, actual, "aabbff")
 		})
-	})
 
-	Context("SortAdapter 구조체는", func() {
-		actual := []string{"def", "abc", "bcd"}
-
-		It("정상적으로 잘 정렬한다.", func() {
+		t.Run("SortAdapter 구조체가 정상적으로 잘 정렬한다.", func(t *testing.T) {
+			actual := []string{"def", "abc", "bcd"}
 			expected := []string{"abc", "bcd", "def"}
 
 			sort.Sort(SortAdapter(actual))
-			Expect(deep.Equal(actual, expected)).Should(BeNil())
-		})
-	})
-
-	Context("Reverse 함수는", func() {
-		It("문자열을 잘 뒤집는다.", func() {
-			actual := Reverse("abc")
-			Expect(actual).Should(Equal("cba"))
+			assert.DeepEqual(t, actual, expected)
 		})
 
-		It("빈 문자열에 오류가 발생하지 않는다.", func(done Done) {
-			go func() {
-				defer GinkgoRecover()
+		t.Run("Reverse 함수는", func(t *testing.T) {
+			t.Run("문자열을 잘 뒤집는다.", func(t *testing.T) {
+				actual := Reverse("abc")
+				assert.Equal(t, actual, "cba")
+			})
 
+			t.Run("빈 문자열에 오류가 발생하지 않는다.", func(t *testing.T) {
 				actual := Reverse("")
-				Expect(actual).Should(Equal(""))
-
-				close(done)
-			}()
+				assert.Equal(t, actual, "")
+			})
 		})
 	})
-})
+}
