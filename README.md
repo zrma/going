@@ -10,7 +10,7 @@
 
 
 #### Requirement
-> [Go](https://golang.org) (v1.12+)
+> [Go](https://golang.org) (v1.14+)
 
 
 #### Test
