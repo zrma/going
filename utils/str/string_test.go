@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	"gotest.tools/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestStrUtils(t *testing.T) {
@@ -25,7 +25,7 @@ func TestStrUtils(t *testing.T) {
 			expected := []string{"abc", "bcd", "def"}
 
 			sort.Sort(SortAdapter(actual))
-			assert.DeepEqual(t, actual, expected)
+			assert.Equal(t, actual, expected)
 		})
 
 		t.Run("Reverse 함수는", func(t *testing.T) {

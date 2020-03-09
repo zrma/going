@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"gotest.tools/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMinMax(t *testing.T) {

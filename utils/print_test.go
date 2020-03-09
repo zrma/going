@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"gotest.tools/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestPrintTest(t *testing.T) {
@@ -17,13 +17,13 @@ func TestPrintTest(t *testing.T) {
 			}, []string{
 				"test",
 			})
-			assert.NilError(t, err)
+			assert.NoError(t, err)
 		})
 
 		t.Run("반환값 없음", func(t *testing.T) {
 			err := PrintTest(func() {
 			}, []string{})
-			assert.NilError(t, err)
+			assert.NoError(t, err)
 		})
 
 		t.Run("반환값이 있어야 하는데 안 나오는 경우", func(t *testing.T) {
