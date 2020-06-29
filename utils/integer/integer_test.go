@@ -9,6 +9,12 @@ import (
 
 var _ = Describe("정수형 관련 유틸 함수 검증", func() {
 	Context("Min", func() {
+		It("함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
+			Expect(MinInt(1, 3, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt(3, 1, 5)).Should(BeNumerically("==", 1))
+			Expect(MinInt(5, 3, 1)).Should(BeNumerically("==", 1))
+		})
+
 		It("32 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
 			Expect(MinInt32(1, 3, 5)).Should(BeNumerically("==", 1))
 			Expect(MinInt32(3, 1, 5)).Should(BeNumerically("==", 1))
@@ -23,6 +29,12 @@ var _ = Describe("정수형 관련 유틸 함수 검증", func() {
 	})
 
 	Context("Max", func() {
+		It("함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
+			Expect(MaxInt(1, 3, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt(3, 1, 5)).Should(BeNumerically("==", 5))
+			Expect(MaxInt(5, 3, 1)).Should(BeNumerically("==", 5))
+		})
+
 		It("32 함수는 주어진 정수 중 가장 작은 수를 반환한다.", func() {
 			Expect(MaxInt32(1, 3, 5)).Should(BeNumerically("==", 5))
 			Expect(MaxInt32(3, 1, 5)).Should(BeNumerically("==", 5))

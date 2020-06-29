@@ -2,6 +2,17 @@ package integer
 
 import "math"
 
+// MinInt 함수는 인자로 주어진 int 가변 인수 중 가장 작은 값을 반환한다.
+func MinInt(arr ...int) int {
+	var min = math.MaxInt32
+	for _, num := range arr {
+		if min > num {
+			min = num
+		}
+	}
+	return min
+}
+
 // MinInt32 함수는 인자로 주어진 int32 가변 인수 중 가장 작은 값을 반환한다.
 func MinInt32(arr ...int32) int32 {
 	var min int32 = math.MaxInt32
@@ -22,6 +33,17 @@ func MinInt64(arr ...int64) int64 {
 		}
 	}
 	return min
+}
+
+// MaxInt 함수는 인자로 주어진 int 가변 인수 중 가장 큰 값을 반환한다.
+func MaxInt(arr ...int) int {
+	var max = math.MinInt32
+	for _, num := range arr {
+		if max < num {
+			max = num
+		}
+	}
+	return max
 }
 
 // MaxInt32 함수는 인자로 주어진 int32 가변 인수 중 가장 큰 값을 반환한다.
