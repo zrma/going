@@ -1,40 +1,44 @@
-package utils
+package utils_test
 
 import (
 	"fmt"
+	"testing"
 
-	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+
+	"github.com/zrma/going/utils"
 )
 
-var _ = Describe("PrintTest 함수 검증", func() {
-	It("정상 동작", func() {
-		err := PrintTest(func() {
+func TestPrintTest(t *testing.T) {
+	g := NewWithT(t)
+
+	t.Run("정상 동작", func(t *testing.T) {
+		err := utils.PrintTest(func() {
 			fmt.Println("test")
 		}, []string{
 			"test",
 		})
-		Expect(err).ShouldNot(HaveOccurred())
+		g.Expect(err).ShouldNot(HaveOccurred())
 	})
 
-	It("반환값 없음", func() {
-		err := PrintTest(func() {
+	t.Run("반환값 없음", func(t *testing.T) {
+		err := utils.PrintTest(func() {
 		}, []string{})
-		Expect(err).ShouldNot(HaveOccurred())
+		g.Expect(err).ShouldNot(HaveOccurred())
 	})
 
-	It("반환값이 있어야 하는데 안 나오는 경우", func() {
-		err := PrintTest(func() {
+	t.Run("반환값이 있어야 하는데 안 나오는 경우", func(t *testing.T) {
+		err := utils.PrintTest(func() {
 		}, []string{
 			"failed",
 		})
-		Expect(err).Should(HaveOccurred())
+		g.Expect(err).Should(HaveOccurred())
 	})
 
-	It("반환값이 없어야 하는데 나오는 경우", func() {
-		err := PrintTest(func() {
+	t.Run("반환값이 없어야 하는데 나오는 경우", func(t *testing.T) {
+		err := utils.PrintTest(func() {
 			fmt.Println("test")
 		}, []string{})
-		Expect(err).Should(HaveOccurred())
+		g.Expect(err).Should(HaveOccurred())
 	})
-})
+}
