@@ -13,8 +13,8 @@ var _ = Describe("RunUntil 테스트", func() {
 	t := GinkgoT()
 	It("성공", func(done Done) {
 		defer close(done)
-		RunUntil(t, func(wait Wait) {
-			defer close(wait)
+		RunUntil(t, func(holder Holder) {
+			defer holder.Done()
 		}, 1)
 	}, 2)
 
@@ -22,8 +22,8 @@ var _ = Describe("RunUntil 테스트", func() {
 		defer close(done)
 
 		var newT tImpl
-		RunUntil(&newT, func(wait Wait) {
-			defer close(wait)
+		RunUntil(&newT, func(holder Holder) {
+			defer holder.Done()
 			time.Sleep(3 * time.Second)
 		}, 1)
 
