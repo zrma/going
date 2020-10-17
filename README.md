@@ -6,12 +6,28 @@
 [![Coverage Status](https://coveralls.io/repos/github/zrma/going/badge.svg?branch=master)](https://coveralls.io/github/zrma/going?branch=master)
 [![Codecov Status](https://codecov.io/gh/zrma/going/branch/master/graphs/badge.svg)](https://codecov.io/gh/zrma/going)
 
+----
+
 1 day 1 coding
 
 
-#### Requirement
+## Requirement
+
 > [Go](https://golang.org) (v1.14+)
 
+## Initialize
 
-#### Test
+```bash
+$ git clone https://github.com/zrma/going.git
+```
+
+## pre-commit
+
+```bash
+$ brew install pre-commit
+$ pre-commit install
+```
+
+## Test
+
 > $ make test
