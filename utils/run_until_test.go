@@ -1,25 +1,26 @@
 package utils_test
 
 import (
+	"testing"
 	"time"
 
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	"github.com/stretchr/testify/assert"
 
 	. "github.com/zrma/going/utils"
 )
 
-var _ = Describe("RunUntil 테스트", func() {
-	t := GinkgoT()
-	It("성공", func(done Done) {
-		defer close(done)
+func TestRunUnit(t *testing.T) {
+	t.Parallel()
+
+	t.Log("RunUntil")
+
+	t.Run("성공", func(t *testing.T) {
 		RunUntil(t, func(holder Holder) {
 			defer holder.Done()
 		}, 1)
-	}, 2)
+	})
 
-	It("실패 - 타임아웃", func(done Done) {
-		defer close(done)
+	t.Run("실패 타임아웃", func(t *testing.T) {
 
 		var newT tImpl
 		RunUntil(&newT, func(holder Holder) {
@@ -27,9 +28,9 @@ var _ = Describe("RunUntil 테스트", func() {
 			time.Sleep(3 * time.Second)
 		}, 1)
 
-		Expect(newT.failed()).Should(BeTrue())
-	}, 2)
-})
+		assert.True(t, newT.failed())
+	})
+}
 
 type tImpl struct {
 	failedFlag bool
