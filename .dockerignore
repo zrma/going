@@ -1,0 +1,13 @@
+.git
+.gitattributes
+.github
+.gitignore
+.gitpod.yml
+.travis.yml
+.idea
+*.md
+cover.sh
+docker-compose.test.yml
+shadow.sh
+sonar-project.properties
+test.sh

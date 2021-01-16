@@ -1,0 +1,10 @@
+name: 'golang action'
+description: 'golang build tool action'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'package'
+  color: 'blue'

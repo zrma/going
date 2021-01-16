@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  going-test:
+    container_name: going-test
+    build:
+      context: .
+      dockerfile: ./docker/test/Dockerfile
