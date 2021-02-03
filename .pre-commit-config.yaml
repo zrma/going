@@ -7,6 +7,6 @@ repos:
       - id: trailing-whitespace
       - id: mixed-line-ending
   - repo: https://github.com/golangci/golangci-lint
-    rev: v1.35.2
+    rev: v1.36.0
     hooks:
       - id: golangci-lint
