@@ -33,13 +33,13 @@ func TestRunUnit(t *testing.T) {
 }
 
 type tImpl struct {
-	failedFlag bool
+	called bool
 }
 
-func (t *tImpl) Fatal(args ...interface{}) {
-	t.failedFlag = true
+func (t *tImpl) Fatal(_ ...interface{}) {
+	t.called = true
 }
 
 func (t *tImpl) failed() bool {
-	return t.failedFlag
+	return t.called
 }
