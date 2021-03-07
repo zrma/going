@@ -8,7 +8,7 @@ RUN apt update && apt upgrade -y
 RUN apt-get -y install libgl1-mesa-dev xorg-dev gcc
 RUN apt-get -y install wget curl
 
-ARG GO_VERSION=1.15.6
+ARG GO_VERSION=1.16
 
 ADD https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz /usr/local/
 RUN tar -zxf /usr/local/go${GO_VERSION}.linux-amd64.tar.gz -C /usr/local
