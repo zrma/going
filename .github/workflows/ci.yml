@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        go: [ '1.14', '1.15' ]
+        go: [ '1.14', '1.15', '1.16' ]
     name: action test
     steps:
       - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: coverage
-          path: coverage.out
+          path: coverage.lcov
 
   report:
     needs: test
@@ -53,11 +53,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - uses: codecov/codecov-action@v1
-      - name: Install goveralls
-        env:
-          GO111MODULE: off
-        run: go get github.com/mattn/goveralls
-      - name: Send coverage
-        uses: shogo82148/actions-goveralls@v1
+
+      - name: coveralls
+        uses: coverallsapp/github-action@master
         with:
-          path-to-profile: coverage.out
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: coverage.lcov
